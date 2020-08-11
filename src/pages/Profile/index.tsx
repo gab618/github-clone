@@ -1,7 +1,8 @@
 import React from "react";
 
-import { Container, Main, LeftSide, RightSide } from "./styles";
+import { Container, Main, LeftSide, RightSide, Repos } from "./styles";
 import ProfileData from "../../components/ProfileData";
+import RepoCard from "../../components/RepoCard";
 
 const Profile: React.FC = () => {
   return (
@@ -22,7 +23,27 @@ const Profile: React.FC = () => {
             blog={"linkedin.com/in/grocha97"}
           />
         </LeftSide>
-        <RightSide></RightSide>
+        <RightSide>
+          <Repos>
+            <h2>Random repos</h2>
+
+            <div>
+              {[1, 2, 3, 4, 5, 6].map((n) => (
+                <RepoCard
+                  key={n}
+                  username={"gab618"}
+                  reponame={"bolao-cblol-frontend"}
+                  description={
+                    "Uma plataforma para palpitar os resultados do CBLOL com os amigos"
+                  }
+                  language={n % 3 === 0 ? "JavaScript" : "TypeScript"}
+                  stars={7}
+                  forks={4}
+                />
+              ))}
+            </div>
+          </Repos>
+        </RightSide>
       </Main>
     </Container>
   );
